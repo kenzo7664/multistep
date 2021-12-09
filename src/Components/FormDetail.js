@@ -9,6 +9,13 @@ export class FormDetail extends Component {
         e.preventDefault()
         this.props.nextStep()
     }
+
+    hide = ()=>{
+        const tex = document.getElementById("email")
+        if(tex !== ""){
+        tex.style.display = "inline-grid"
+        }
+    }
     render() {
         const {values, handleChange} = this.props
         return (
@@ -30,26 +37,25 @@ export class FormDetail extends Component {
                   onChange ={handleChange('lastName')}
                   defaultValue = {values.lastName}
                   style = {padding.box} 
+                  onKeyPress = {this.hide}
 
                   />
                   <br/>
-                  <TextField
-                  hintText = "Enter Your Email"
-                  floatingLabelText = "Email"
-                  onChange ={handleChange('email')}
-                  defaultValue = {values.email}
-                  style = {padding.box} 
-
+                  <input 
+                   placeholder= " Email Address"
+                   id="email"
+                   style={{display:"none", padding:"10px", margin:"15px",borderColor:"rgb(0, 188, 212)"}}
+                   onChange={handleChange("email")}
                   />
                   <br/>
-                  <RaisedButton
-                   label ="Continue"
-                   primary ="true"
+                  <button 
                    style={styles.button}
-                   onClick = {this.continue}
+                   onClick = {this.continue}>Continue
+                   
+                   </button>
                    
                    
-                  />
+                  
                 </React.Fragment>
             </MuiThemeProvider>
         )
@@ -59,7 +65,13 @@ export class FormDetail extends Component {
 const styles = {
     button:{
         margin:"15px",
-        background: "#fff"
+        background: "#FFA500",
+        color:"#fff",
+        border:"none",
+        borderRadius:"5px",
+        cursor:"pointer",
+        padding: "10px",
+        
     }
 } 
 

@@ -46,20 +46,16 @@ export class FormPersonalDetail extends Component {
                   style = {padding.box} 
                   />
                   <br/>
-                  <RaisedButton
-                   label ="Continue"
-                   primary = "true"
+                  <button 
                    style={styles.button}
-                   onClick = {this.continue}
+                   onClick = {this.continue}>Continue
                    
-                  />
-                  <RaisedButton
-                   label ="Back"
-                   primary = "false"
+                   </button>
+                   <button 
                    style={styles.button}
-                   onClick = {this.back}
+                   onClick = {this.continue}>Back
                    
-                  />
+                   </button>
                 </React.Fragment>
             </MuiThemeProvider>
         )
@@ -68,9 +64,16 @@ export class FormPersonalDetail extends Component {
 
 const styles = {
     button:{
-        margin:"15px"
+        margin:"15px",
+        background: "#FFA500",
+        color:"#fff",
+        border:"none",
+        borderRadius:"5px",
+        cursor:"pointer",
+        padding: "10px",
+        
     }
-}
+} 
 const padding ={
     box:{
         margin:"15px"
